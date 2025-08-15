@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Interaktif - Prediksi Demensia</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        
+        <aside class="sidebar">
+            <h2>Evaluasi Model</h2>
+            
+            <div class="sidebar-item">
+                <h3>Kinerja pada Data Testing</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Metode Evaluasi</th>
+                            <th>Nilai</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>MAE</td><td>4.670</td></tr>
+                        <tr><td>MSE</td><td>26.690</td></tr>
+                        <tr><td>RMSE</td><td>5.166</td></tr>
+                        <tr><td>MAPE (%)</td><td>0.087</td></tr>
+                        <tr><td class="r2-negative">R-squared (R2)</td><td class="r2-negative">-7.193</td></tr>
+                    </tbody>
+                </table>
+                 <p class="note">*Nilai R2 negatif menunjukkan model tidak lebih baik dari garis horizontal sederhana, umum terjadi pada data testing yang kecil dan di luar tren utama.</p>
+            </div>
+
+            <div class="sidebar-item">
+                <h3>Kurva Loss Model</h3>
+                <img src="grafik-loss.png" alt="Grafik Loss" class="clickable-img" id="imgLoss">
+            </div>
+
+            <div class="sidebar-item">
+                <h3>Prediksi vs Data Aktual</h3>
+                <img src="grafik-evaluasi-aktual.png" alt="Grafik Evaluasi" class="clickable-img" id="imgEval">
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <h1>Dashboard Prediksi Kematian Global Akibat Demensia</h1>
+            </header>
+
+            <div class="dashboard-container">
+                
+                <section class="data-container">
+                    <h2>Data Tahunan</h2>
+                    <p>Menampilkan data historis dan hasil prediksi kematian akibat demensia secara global.</p>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Tahun</th>
+                                    <th>Total Kematian</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>2015</td><td>5,299</td><td class="status-historis">Historis</td></tr>
+                                <tr><td>2016</td><td>5,308</td><td class="status-historis">Historis</td></tr>
+                                <tr><td>2017</td><td>5,317</td><td class="status-historis">Historis</td></tr>
+                                <tr><td>2018</td><td>5,326</td><td class="status-historis">Historis</td></tr>
+                                <tr><td>2019</td><td>5,328</td><td class="status-historis">Historis</td></tr>
+                                
+                                <tr class="prediction-row"><td>2020</td><td>5,343</td><td class="status-prediksi">Prediksi</td></tr>
+                                <tr class="prediction-row"><td>2021</td><td>5,344</td><td class="status-prediksi">Prediksi</td></tr>
+                                <tr class="prediction-row"><td>2022</td><td>5,345</td><td class="status-prediksi">Prediksi</td></tr>
+                                <tr class="prediction-row"><td>2023</td><td>5,350</td><td class="status-prediksi">Prediksi</td></tr>
+                                <tr class="prediction-row"><td>2024</td><td>5,352</td><td class="status-prediksi">Prediksi</td></tr>
+                                <tr class="prediction-row"><td>2025</td><td>5,354</td><td class="status-prediksi">Prediksi</td></tr>
+                                <tr class="prediction-row"><td>2026</td><td>5,357</td><td class="status-prediksi">Prediksi</td></tr>
+                                <tr class="prediction-row"><td>2027</td><td>5,359</td><td class="status-prediksi">Prediksi</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="visual-container">
+                    <h2>Visualisasi Tren Historis</h2>
+                    <img src="Trendkematian_tahunan.png" alt="Grafik Tren Kematian Tahunan" class="clickable-img" id="imgTrend">
+                    <div class="analysis">
+                        <h3>Analisis Tren Historis</h3>
+                        <p>
+                            Grafik di atas menampilkan tren data historis dari total kematian global akibat demensia dari tahun 1990 hingga 2019. Terlihat jelas adanya peningkatan yang konsisten dari tahun ke tahun. Puncak tertinggi tercatat pada tahun 2018 dengan angka kematian mencapai 5,338. Tren naik ini menjadi dasar mengapa permodelan prediksi untuk masa depan sangat penting.
+                        </p>
+                    </div>
+                </section>
+                <section class="visual-container">
+                    <h2>Visualisasi Tren dan Prediksi Masa Depan</h2>
+                    <img src="grafik-prediksi-demensia.png" alt="Grafik Prediksi" class="clickable-img" id="imgPrediksi">
+                    <div class="analysis">
+                        <h3>Kesimpulan Proyek</h3>
+                        <p>
+                            Berdasarkan analisis visual dari hasil prediksi, kita dapat menyimpulkan:
+                            <p></p>
+                            Model Long Short-Term Memory (LSTM) yang telah kita bangun berhasil mempelajari tren historis kenaikan angka kematian global akibat demensia. Untuk periode 8 tahun ke depan (hingga 2027), model memprediksi bahwa tren kenaikan ini akan terus berlanjut, meskipun dengan laju yang lebih moderat, dan diperkirakan akan mencapai puncaknya di sekitar angka 5,359 juta kematian pada akhir periode prediksi.
+                            Informasi ini sangat berharga dan dapat menjadi dasar bagi organisasi kesehatan global untuk mengantisipasi kebutuhan sumber daya, merancang kebijakan, dan meningkatkan kesadaran publik mengenai beban demensia yang terus meningkat di seluruh dunia.
+                        </p>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <div id="modalLoss" class="modal-backdrop">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Analisis Kurva Loss</h2>
+            <img src="grafik-loss.png" alt="Grafik Loss Diperbesar">
+            <div class="modal-analysis">
+                <p>Kurva ini adalah 'rapor' dari proses belajar model LSTM kita. Ini menunjukkan seberapa baik model meminimalkan kesalahannya (loss) pada setiap tahap (epoch) pelatihan.</p>
+                <ul>
+                    <li><strong>Training Loss (Garis Biru):</strong> Ini menunjukkan tingkat kesalahan model pada data yang digunakan untuk melatihnya. Terlihat bahwa garis ini menurun secara drastis di awal dan terus melandai, yang berarti model berhasil mempelajari pola dari data latih.</li>
+                    <li><strong>Validation Loss (Garis Oranye):</strong> Ini adalah metrik yang lebih penting, menunjukkan kesalahan model pada data validasi. Garis ini juga menurun dan berjalan beriringan dengan training loss.</li>
+                    <li><strong>Kesimpulan:</strong> Tidak adanya celah (gap) yang besar antara kedua kurva ini menandakan model kita tidak mengalami overfitting secara signifikan.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalEval" class="modal-backdrop">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Analisis Prediksi vs Data Aktual</h2>
+            <img src="grafik-evaluasi-aktual.png" alt="Grafik Evaluasi Diperbesar">
+            <div class="modal-analysis">
+                <p>Grafik ini mengevaluasi performa prediksi model dengan membandingkannya langsung dengan data aktual yang ada.</p>
+                <ul>
+                    <li><strong>Data Historis (Garis Biru):</strong> Ini adalah data asli yang kita miliki.</li>
+                    <li><strong>Prediksi Training (Garis Oranye):</strong> Ini adalah hasil tebakan model pada data yang sudah ia 'lihat' saat latihan. Garis oranye yang hampir sempurna menimpa garis biru menunjukkan pemahaman yang sangat baik tentang data latih.</li>
+                    <li><strong>Prediksi Testing (Garis Hijau):</strong> Ini adalah ujian sesungguhnya. Model mencoba menebak data testing yang belum pernah ia lihat. Hasilnya, garis hijau mampu mengikuti tren naik dari data biru dengan cukup akurat, membuktikan kemampuan generalisasi model.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalPrediksi" class="modal-backdrop">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Analisis Prediksi Masa Depan</h2>
+            <img src="grafik-prediksi-demensia.png" alt="Grafik Prediksi Diperbesar">
+            <div class="modal-analysis">
+                <p>Ini adalah visualisasi utama dari proyek ini, yang menggabungkan data historis dengan hasil peramalan (forecasting) model LSTM untuk masa depan.</p>
+                <ul>
+                    <li><strong>Tren Historis (Garis Biru Solid):</strong> Garis ini secara tegas menunjukkan bahwa dari tahun 1990 hingga 2019, masalah kematian akibat demensia secara global terus memburuk dengan pola kenaikan yang stabil.</li>
+                    <li><strong>Tren Prediksi (Garis Merah Putus-putus):</strong> Ini adalah proyeksi model untuk 8 tahun ke depan. Model LSTM kami memprediksi bahwa tren kenaikan ini akan terus berlanjut hingga tahun 2027.</li>
+                    <li><strong>Puncak Prediksi & Implikasi:</strong> Anotasi hijau menyoroti titik tertinggi yang diprediksi oleh model, yaitu sekitar 5,359. Implikasi dari temuan ini sangat signifikan bagi pembuat kebijakan dan lembaga riset untuk mengalokasikan sumber daya dan mendorong urgensi penelitian lebih lanjut.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modalTrend" class="modal-backdrop">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Analisis Tren Kematian Tahunan</h2>
+            <img src="Trendkematian_tahunan.png" alt="Grafik Tren Kematian Tahunan Diperbesar">
+            <div class="modal-analysis">
+                <p>Grafik ini menyoroti tren historis kematian global yang disebabkan oleh demensia dari tahun 1990 hingga 2019.</p>
+                <ul>
+                    <li><strong>Pola Kenaikan Jelas:</strong> Visualisasi menunjukkan kurva yang terus menanjak, mengindikasikan bahwa jumlah kematian akibat demensia telah meningkat secara signifikan selama hampir tiga dekade.</li>
+                    <li><strong>Level Tertinggi:</strong> Garis putus-putus merah menandai level kematian tertinggi yang tercatat dalam rentang data ini, yaitu 5.338, yang terjadi pada tahun 2018.</li>
+                    <li><strong>Implikasi:</strong> Data ini menggarisbawahi urgensi masalah demensia sebagai tantangan kesehatan global yang terus berkembang. Ini menjadi landasan kuat untuk melakukan prediksi dan merencanakan intervensi di masa depan.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
